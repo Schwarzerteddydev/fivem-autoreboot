@@ -1,5 +1,4 @@
 echo 'FiveM LINUX REBOOT INSTALLER'
-apt update && apt upgrade
 cd /usr/bin/
 touch fivem_start.sh
 echo -e '
