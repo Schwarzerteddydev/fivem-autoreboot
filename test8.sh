@@ -20,9 +20,8 @@ WantedBy=multi-user.target' >> fivem.service
 echo 'fivem.service is created'
 echo 'Default reboot Installed'
 
+sudo chmod +x /usr/bin/fivem_start.sh
 sudo systemctl daemon-reload
 sudo systemctl start fivem
 sudo systemctl enable fivem
 echo 'Permissions set for fivem_start.sh fivem.service to 777'
-sudo chmod 777 /usr/bin/fivem_start.sh
-echo 'set permissions'
