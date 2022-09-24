@@ -29,6 +29,6 @@ sudo systemctl daemon-reload
 sudo systemctl start fivem
 sudo systemctl enable fivem
 echo 'Permissions set for fivem_start.sh fivem.service to 777'
-sudo chmod +x /usr/bin/fivem_start.sh
+sudo chmod 777 /usr/bin/fivem_start.sh
 chmod 777 /lib/systemd/system/fivem.service
 echo 'set permissions'
