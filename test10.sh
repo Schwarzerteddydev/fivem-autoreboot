@@ -1,14 +1,21 @@
 echo 'FiveM LINUX REBOOT INSTALLER'
-cd /usr/bin/
+cd /usr/bin
 touch fivem_start.sh
 echo -e '#!/bin/bash
 screen -dmS txadmin bash  /home/FiveM/server/run.sh +set serverProfile default +set txAdminPort 40120' >> fivem_start.sh
 echo 'fivem_start.sh is created'
 cd /lib/systemd/system/
-bash <(curl -s raw.githubusercontent.com/Schwarzerteddydev/fivem-autoreboot/main/fivem.service)
+touch fivem.service
+echo -e '[Unit]
+Description=FiveM server
 
-echo 'fivem.service is created'
-echo 'Default reboot Installed'
+[Service]
+Type=forking
+User=root
+ExecStart=/usr/bin/fivem_start.sh
+
+[Install]
+WantedBy=multi-user.target' >> fivem.service
 
 sudo chmod +x /usr/bin/fivem_start.sh
 sudo systemctl daemon-reload
